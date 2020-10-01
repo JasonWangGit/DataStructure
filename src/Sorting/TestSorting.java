@@ -5,8 +5,12 @@ public class TestSorting {
 		int[] array = {1, 256, 23, 56, 89, 7, 77, 111, 653, 47};
 		// Bubble sort
 		// display(BubbleSort.sort(array));
+		
 		// Selection sort
-		display(SelectionSort.sort(array));
+		// display(SelectionSort.sort(array));
+		
+		// Insertion sort
+		display(InsertionSort.sort(array));
 	}
 	
 	public static void display(int[] array) {
