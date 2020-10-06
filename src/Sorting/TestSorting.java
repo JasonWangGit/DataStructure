@@ -10,7 +10,10 @@ public class TestSorting {
 		// display(SelectionSort.sort(array));
 		
 		// Insertion sort
-		display(InsertionSort.sort(array));
+		// display(InsertionSort.sort(array));
+		
+		// Merge sort
+		display(MergeSort.sort(array));
 	}
 	
 	public static void display(int[] array) {
