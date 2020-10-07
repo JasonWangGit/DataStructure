@@ -1,7 +1,5 @@
 package DirectedWeightedGraph;
 
-import javax.swing.text.View;
-
 public class DirectedWeightedGraph {
 	private final int MAX_VERTEX = 20;
 	private final int INFINITY = 999999;
