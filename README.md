@@ -214,3 +214,16 @@ throw new EmptyStackException();
 - 满队isFull
   - `return size == capacity;`
 
+- 入队add（插入）
+  - index初始指向size
+  - 循环体内（while循环，index大于0，data小于index位置前一个元素）
+    - `element[index--] = element[index - 1];`
+  - data放在index位置
+  - 数组尾部，O(n)
+- peek（查找）
+  - `if(!isEmpty()) return element[size - 1];`
+  - 数组尾部，O(1)
+- 出队remove（删除）
+  - `if(!isEmpty()) element[size - 1] = 0;`
+  - `size--;`
+  - 数组尾部，O(1)
