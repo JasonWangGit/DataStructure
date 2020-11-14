@@ -39,9 +39,9 @@ public class MyStack<E> {
 		else throw new EmptyStackException();
 	}
 	
-	@SuppressWarnings("unchecked")
 	public E pop() {
 		if(!isEmpty()) {
+			@SuppressWarnings("unchecked")
 			E obj = (E) element[top];
 			element[top--] = null;
 			size--;
