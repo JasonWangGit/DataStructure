@@ -115,7 +115,7 @@ elementData = Arrays.copyOf(elementData, newCapacity);
 
 #### 手写ArrayList
 
-- System.arrayCopy( arr1, 2, arr2, 5, 10); 
+- System.arraycopy( arr1, 2, arr2, 5, 10); 
   - 意思是：将arr1数组里从索引为2的元素开始, 复制到数组arr2里的索引为5的位置, 复制的元素个数为10个
   - 删除可以采用此方法将后面元素前移
 
@@ -198,3 +198,13 @@ throw new EmptyStackException();
   - `tail= (tail - 1) & (capacity - 1)`
   - `if(!isEmpty()) element[tail] = null;`
   - 尾部，O(1)
+- 扩容
+  - tail部分放在扩容后前端
+    - `System.arraycopy(element, 0, newElement, 0, tail);`
+  - head部分放在扩容后后端
+    - `System.arraycopy(element, head, newElement, capacity - 1 + head, capacity - head);`
+  - tail指针位置不变、head指针位置后移capacity-1
+    - `head = capacity - 1 + head;`
+
+#### 优先级队列
+
