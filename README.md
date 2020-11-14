@@ -122,19 +122,19 @@ elementData = Arrays.copyOf(elementData, newCapacity);
 ### 06.栈
 
 - 指针：top（初始-1）
-- 压入push（插入）
-  - `if(!isFull()) elementData[++top] = data`
-  - 数组尾部，O(1)
-- peek（查找）
-  - `if(!isEmpty()) return elementData[top];`
-  - 数组尾部，O(1)
-- 弹出pop（删除）
-  - `if(!isEmpty()) elementData[top--] = null;`
-  - 数组尾部，O(1)
 - 空栈isEmpty
   - `return size == 0;`
 - 满栈isFull
-  - `return size == maxSize;`
+  - `return size == capacity;`
+- 压入push（插入）
+  - `if(!isFull()) element[++top] = data`
+  - 数组尾部，O(1)
+- peek（查找）
+  - `if(!isEmpty()) return element[top];`
+  - 数组尾部，O(1)
+- 弹出pop（删除）
+  - `if(!isEmpty()) element[top--] = null;`
+  - 数组尾部，O(1)
 
 #### 抛出异常
 
@@ -152,47 +152,47 @@ throw new EmptyStackException();
 
 - 指针：rear（初始-1）、front（初始0）
 - 入队add（插入）
-  - `if(rear == maxSize - 1) rear = -1;`
-  - `if(!isFull()) elementData[++rear] = data`
+  - `if(rear == capacity - 1) rear = -1;`
+  - `if(!isFull()) element[++rear] = data`
   - 尾部，O(1)
 - peek（查找）
-  - `if(!isEmpty()) return elementData[front];`
+  - `if(!isEmpty()) return element[front];`
   - 头部，O(1)
 - 出队remove（删除）
-  - `if(!isEmpty()) elementData[front++] = null;`
-  - `if(front == maxSize) front = 0;`
+  - `if(!isEmpty()) element[front++] = null;`
+  - `if(front == capacity) front = 0;`
   - 头部，O(1)
 - 空队isEmpty
   - `return size == 0;`
 - 满队isFull
-  - `return size == maxSize;`
+  - `return size == capacity;`
 
 #### 双端队列
 
 - 取模（基于数组长度是2的整数次幂）
-  - `head = (head - 1) & (maxSize - 1)`;
+  - `head = (head - 1) & (capacity - 1)`;
 
 - 指针：head（初始0）、tail（初始0）
 
 - 头部入队addFirst（插入）
-  - `if(!isFull()) elementData[head = (head - 1) & (maxSize - 1)] = data;`
+  - `if(!isFull()) element[head = (head - 1) & (capacity - 1)] = data;`
   - 头部，O(1)
 - 尾部入队addLast（插入）
-  - `if(!isFull()) elementData[tail= (tail + 1) & (maxSize - 1)] = data;`
+  - `if(!isFull()) element[tail= (tail + 1) & (capacity - 1)] = data;`
   - 尾部，O(1)
 - 头部peekFirst（查找）
-  - `if(!isEmpty()) return elementData[head];`
+  - `if(!isEmpty()) return element[head];`
   - 头部，O(1)
 - 尾部peekLast（查找）
-  - `if(!isEmpty()) return elementData[tail];`
+  - `if(!isEmpty()) return element[tail];`
   - 尾部，O(1)
 - 头部出队removeFirst（删除）
-  - `if(!isEmpty()) elementData[head = (head + 1) & (maxSize - 1)] = null;`
+  - `if(!isEmpty()) element[head = (head + 1) & (capacity - 1)] = null;`
   - 头部，O(1)
 - 尾部出队removeLast（删除）
-  - `if(!isEmpty()) elementData[tail= (tail - 1) & (maxSize - 1)] = null;`
+  - `if(!isEmpty()) element[tail= (tail - 1) & (capacity - 1)] = null;`
   - 尾部，O(1)
 - 空队isEmpty
   - `return size == 0;`
 - 满队isFull
-  - `return size == maxSize;`
+  - `return size == capacity;`
