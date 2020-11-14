@@ -156,7 +156,7 @@ throw new EmptyStackException();
 - 满队isFull
   - `return size == capacity;`
 - 入队add（插入）
-  - `if(rear == capacity - 1) rear = -1;`
+  - `if(rear == capacity - 1) rear = -1;`（实际上应该在if内层）
   - `if(!isFull()) element[++rear] = data`
   - 尾部，O(1)
 - peek（查找）
