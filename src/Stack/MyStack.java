@@ -46,8 +46,7 @@ public class MyStack<E> {
 			element[top--] = null;
 			size--;
 			return obj;
-		}
-		else throw new EmptyStackException();
+		} else throw new EmptyStackException();
 	}
 	
 	private void grow() {
