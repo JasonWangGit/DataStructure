@@ -208,3 +208,9 @@ throw new EmptyStackException();
 
 #### 优先级队列
 
+- 指针：front（初始0）、rear（初始0）
+- 空队isEmpty
+  - `return size == 0;`
+- 满队isFull
+  - `return size == capacity;`
+
