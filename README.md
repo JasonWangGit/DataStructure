@@ -121,7 +121,7 @@ elementData = Arrays.copyOf(elementData, newCapacity);
 
 ### 06.栈
 
-- 指针：top（初始-1）
+- 指针：top（初始**-1**）
 - 空栈isEmpty
   - `return size == 0;`
 - 满栈isFull
@@ -150,7 +150,11 @@ throw new EmptyStackException();
 
 #### 单向队列
 
-- 指针：rear（初始-1）、front（初始0）
+- 指针：front（初始**0**）、rear（初始**-1**）
+- 空队isEmpty
+  - `return size == 0;`
+- 满队isFull
+  - `return size == capacity;`
 - 入队add（插入）
   - `if(rear == capacity - 1) rear = -1;`
   - `if(!isFull()) element[++rear] = data`
@@ -162,10 +166,6 @@ throw new EmptyStackException();
   - `if(!isEmpty()) element[front++] = null;`
   - `if(front == capacity) front = 0;`
   - 头部，O(1)
-- 空队isEmpty
-  - `return size == 0;`
-- 满队isFull
-  - `return size == capacity;`
 
 #### 双端队列
 
