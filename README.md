@@ -156,7 +156,7 @@ throw new EmptyStackException();
 - 满队isFull
   - `return size == capacity;`
 - 入队add（插入）
-  - `if(rear == capacity - 1) rear = -1;`（实际上应该在if内层）
+  - `if(rear == capacity - 1) rear = -1;`
   - `if(!isFull()) element[++rear] = data`
   - 尾部，O(1)
 - peek（查找）
@@ -171,28 +171,30 @@ throw new EmptyStackException();
 
 - 取模（基于数组长度是2的整数次幂）
   - `head = (head - 1) & (capacity - 1)`;
-
 - 指针：head（初始0）、tail（初始0）
-
+- 空队isEmpty
+- `return size == 0;`
+- 满队isFull
+  - `return size == capacity;`
 - 头部入队addFirst（插入）
-  - `if(!isFull()) element[head = (head - 1) & (capacity - 1)] = data;`
+  - `head = (head - 1) & (capacity - 1);`
+  - `if(!isFull()) element[head] = data;`
   - 头部，O(1)
 - 尾部入队addLast（插入）
-  - `if(!isFull()) element[tail= (tail + 1) & (capacity - 1)] = data;`
+  - `if(!isFull()) element[tail] = data;`
+  - `tail= (tail + 1) & (capacity - 1);`
   - 尾部，O(1)
 - 头部peekFirst（查找）
   - `if(!isEmpty()) return element[head];`
   - 头部，O(1)
 - 尾部peekLast（查找）
-  - `if(!isEmpty()) return element[tail];`
+  - `if(!isEmpty()) return element[tail - 1];`
   - 尾部，O(1)
 - 头部出队removeFirst（删除）
-  - `if(!isEmpty()) element[head = (head + 1) & (capacity - 1)] = null;`
+  - `if(!isEmpty()) element[head] = null;`
+  - `head = (head + 1) & (capacity - 1)`
   - 头部，O(1)
 - 尾部出队removeLast（删除）
-  - `if(!isEmpty()) element[tail= (tail - 1) & (capacity - 1)] = null;`
+  - `tail= (tail - 1) & (capacity - 1)`
+  - `if(!isEmpty()) element[tail] = null;`
   - 尾部，O(1)
-- 空队isEmpty
-  - `return size == 0;`
-- 满队isFull
-  - `return size == capacity;`
