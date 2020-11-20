@@ -16,8 +16,9 @@ public class TestSorting {
 		//display(MergeSort.sort(array));
 		
 		// Quick sort
-		//display(QuickSort.sort(array));
-		display(QuickSort_v2.sort(array));
+		// display(QuickSort.sort(array));
+		// display(QuickSort_v2.sort(array));
+		display(QuickSort_v3.sort(array));
 	}
 	
 	public static void display(int[] array) {
